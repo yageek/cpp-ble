@@ -8,9 +8,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 class CentralCallbackSet;
-class CentralProxy {
-
-};
 
 @interface AppleCentralDelegate: NSObject <CBCentralManagerDelegate> {
     CentralCallbackSet *callbacks;

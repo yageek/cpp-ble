@@ -19,14 +19,16 @@ class Central_p {
 private:
     // TODO: Should use smart pointers to avoid deallocation
     CentralCallbackSet *callbacks;
-
 #ifdef __APPLE__
-    CentralProxy apple_proxy;
+private:
+    AppleCentralDelegate *apple_delegate;
+    CBCentralManager *apple_manager;
 #endif
 
 public:
     Central_p();
     void startScan(std::function<void(int)> device_discovered);
+    void stopScan();
 };
 
 #endif //CONNECTED_MACHINES_CENTRAL_P_H
