@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="net.yageek.example.buildlibs">
+          package="net.yageek.cppble">
 
-    <application android:allowBackup="true" android:label="test"
+    <application android:allowBackup="true" android:label="cppble"
                  android:supportsRtl="true">
 
     </application>
