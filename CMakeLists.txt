@@ -15,7 +15,7 @@ if(ANDROID)
 endif()
 
 if(APPLE)
-    LIST(APPEND SOURCE_FILES platform/apple/CentralProxy.mm platform/apple/CentralProxy.h)
+    LIST(APPEND SOURCE_FILES ble/Central_p_apple.mm platform/apple/CentralProxy.mm platform/apple/CentralProxy.h)
     LIST(APPEND HEADER_FILES platform/apple/CentralProxy.h)
 endif()
 
