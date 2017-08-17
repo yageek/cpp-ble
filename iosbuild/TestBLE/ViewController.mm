@@ -9,7 +9,9 @@
 #import "ViewController.h"
 #import <ble/Central.h>
 
-@interface ViewController ()
+@interface ViewController () {
+    Central *centeal;
+}
 
 @end
 
@@ -18,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    Central *p = new Central();
+    p->startScan(nullptr);
 }
 
 
