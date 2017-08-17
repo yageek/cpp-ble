@@ -1,1 +1,2 @@
 include ':cpp-ble'
+include ':app'
