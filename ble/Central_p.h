@@ -6,29 +6,36 @@
 #define CONNECTED_MACHINES_CENTRAL_P_H
 
 #include <functional>
+#include <string>
 
 #ifdef __APPLE__
-    #include "../platform/apple/CentralProxy.h"
+    #include "../platform/apple/AppleCentralDelegate.h"
 #endif
 
-struct CentralCallbackSet {
-    std::function<void(int)> device_discovered;
-};
+#include "CentralDelegate.h"
+
+class Central;
 
 class Central_p {
+    friend class Central;
+    friend class CentralDelegate;
 private:
     // TODO: Should use smart pointers to avoid deallocation
-    CentralCallbackSet *callbacks;
+    CentralDelegate *delegate;
+    Central *proxyedCentral;
 #ifdef __APPLE__
 private:
     AppleCentralDelegate *apple_delegate;
     CBCentralManager *apple_manager;
+
+    static CentralState stateFromAppleState(CBCentralManagerState state);
 #endif
 
 public:
-    Central_p();
-    void startScan(std::function<void(int)> device_discovered);
+    Central_p(Central* central, CentralDelegate *delegate);
+    void startScan();
     void stopScan();
+    CentralState getState();
 };
 
 #endif //CONNECTED_MACHINES_CENTRAL_P_H

@@ -3,9 +3,11 @@
 //
 
 #include "Central.h"
+#include "Central_p.h"
+#include "CentralDelegate.h"
 
-void Central::startScan(std::function<void(int)> scan_callback) {
-    d->startScan(scan_callback);
+void Central::startScan() {
+    d->startScan();
 }
 
 void Central::stopScan() {
@@ -19,6 +21,10 @@ bool Central::isValid() {
     return false;
 }
 
-Central::Central(): d() {
+Central::Central(CentralDelegate *delegate) {
+    d = new Central_p(this, delegate);
+}
 
+Central::~Central() {
+    delete d;
 }

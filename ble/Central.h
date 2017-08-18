@@ -6,17 +6,30 @@
 #define CONNECTED_MACHINES_CENTRAL_H
 
 #include <functional>
-#include "Central_p.h"
+#include <iostream>
 
+class Central_p;
+class CentralDelegate;
+
+enum class CentralState {
+    Off,
+    On,
+    NotReady,
+    NotAvailable
+};
 class Central {
 
 public:
-    void startScan(std::function<void(int)> scan_callback);
+    void startScan();
     void stopScan();
 
     bool isScanning();
     bool isValid();
-    Central();
+
+    Central(CentralDelegate *delegate);
+    ~Central();
+
+    CentralState getState();
 private:
     Central_p * d;
 };

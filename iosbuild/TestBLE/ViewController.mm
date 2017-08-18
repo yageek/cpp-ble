@@ -10,7 +10,7 @@
 #import <ble/Central.h>
 
 @interface ViewController () {
-    Central *centeal;
+    Central *central;
 }
 
 @end

@@ -7,7 +7,7 @@ if(APPLE)
 endif()
 
 set(HEADER_FILES ble/Central.h uuid/UUID.h ble/Central_p.h)
-set(SOURCE_FILES ble/Central.cpp uuid/UUID.cpp ble/Central_p.cpp)
+set(SOURCE_FILES ble/Central.cpp uuid/UUID.cpp ble/Central_p.cpp ble/CentralDelegate.h)
 
 if(ANDROID)
 find_library(log-lib log)
@@ -19,8 +19,8 @@ find_library(log-lib log)
 endif()
 
 if(APPLE)
-    LIST(APPEND SOURCE_FILES ble/Central_p_apple.mm platform/apple/CentralProxy.mm platform/apple/CentralProxy.h)
-    LIST(APPEND HEADER_FILES platform/apple/CentralProxy.h)
+    LIST(APPEND SOURCE_FILES ble/Central_p_apple.mm platform/apple/AppleCentralDelegate.mm platform/apple/AppleCentralDelegate.h)
+    LIST(APPEND HEADER_FILES platform/apple/AppleCentralDelegate.h)
     add_library(cpp-ble ${SOURCE_FILES} ${HEADER_FILES})
 endif()
 

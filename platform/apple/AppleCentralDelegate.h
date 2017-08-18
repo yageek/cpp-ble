@@ -6,12 +6,13 @@
 #define CONNECTED_MACHINES_CENTRALPROXY_H
 
 #import <CoreBluetooth/CoreBluetooth.h>
-
-class CentralCallbackSet;
+class Central_p;
+class CentralDelegate;
 
 @interface AppleCentralDelegate: NSObject <CBCentralManagerDelegate> {
-    CentralCallbackSet *callbacks;
+    CentralDelegate *delegate;
+    Central_p* central;
 }
-- (instancetype) initWithSet:(CentralCallbackSet*) set;
+- (instancetype) initWithDelegate:(CentralDelegate*) delegateInstance forCentral:(Central_p *) central;
 @end
 #endif //CONNECTED_MACHINES_CENTRALPROXY_H
