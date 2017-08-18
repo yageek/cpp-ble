@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0B0B997A1F46D650008E620A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0B99791F46D650008E620A /* Foundation.framework */; };
+		0B0BB6511F470037004E9453 /* CustomCentralDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B0BB6501F470037004E9453 /* CustomCentralDelegate.mm */; };
+		0B0BB6531F470064004E9453 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0BB6521F470064004E9453 /* CoreBluetooth.framework */; };
 		0B28E0E31F46DA9C0068E272 /* libcpp-ble.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B48C2F41F449A7000043AFE /* libcpp-ble.a */; };
 		0B28E0E51F46DABC0068E272 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B28E0E41F46DABC0068E272 /* CoreBluetooth.framework */; };
-		0B28E0EB1F46E9C40068E272 /* CustomCentralDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B28E0E91F46E9C40068E272 /* CustomCentralDelegate.cpp */; };
+		0B28E0EB1F46E9C40068E272 /* CustomCentralDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B28E0E91F46E9C40068E272 /* CustomCentralDelegate.mm */; };
 		0B48C2DD1F4498EA00043AFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B48C2DC1F4498EA00043AFE /* AppDelegate.m */; };
 		0B48C2E01F4498EA00043AFE /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B48C2DF1F4498EA00043AFE /* ViewController.mm */; };
 		0B48C2E31F4498EA00043AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B48C2E11F4498EA00043AFE /* Main.storyboard */; };
@@ -28,8 +30,11 @@
 
 /* Begin PBXFileReference section */
 		0B0B99791F46D650008E620A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		0B0BB64F1F470037004E9453 /* CustomCentralDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomCentralDelegate.hpp; sourceTree = "<group>"; };
+		0B0BB6501F470037004E9453 /* CustomCentralDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomCentralDelegate.mm; sourceTree = "<group>"; };
+		0B0BB6521F470064004E9453 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		0B28E0E41F46DABC0068E272 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		0B28E0E91F46E9C40068E272 /* CustomCentralDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomCentralDelegate.cpp; sourceTree = "<group>"; };
+		0B28E0E91F46E9C40068E272 /* CustomCentralDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomCentralDelegate.mm; sourceTree = "<group>"; };
 		0B28E0EA1F46E9C40068E272 /* CustomCentralDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomCentralDelegate.hpp; sourceTree = "<group>"; };
 		0B48C2D81F4498EA00043AFE /* TestBLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B48C2DB1F4498EA00043AFE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0BB6531F470064004E9453 /* CoreBluetooth.framework in Frameworks */,
 				0B48C2F51F449A7000043AFE /* libcpp-ble.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +107,8 @@
 		0B48C2DA1F4498EA00043AFE /* TestBLE */ = {
 			isa = PBXGroup;
 			children = (
+				0B0BB64F1F470037004E9453 /* CustomCentralDelegate.hpp */,
+				0B0BB6501F470037004E9453 /* CustomCentralDelegate.mm */,
 				0B48C2DB1F4498EA00043AFE /* AppDelegate.h */,
 				0B48C2DC1F4498EA00043AFE /* AppDelegate.m */,
 				0B48C2DE1F4498EA00043AFE /* ViewController.h */,
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0B28E0E41F46DABC0068E272 /* CoreBluetooth.framework */,
+				0B0BB6521F470064004E9453 /* CoreBluetooth.framework */,
 				0B0B99791F46D650008E620A /* Foundation.framework */,
 				0BB41D201F46D5E0000453B1 /* Cocoa.framework */,
 				0B48C2F41F449A7000043AFE /* libcpp-ble.a */,
@@ -138,7 +147,7 @@
 				0BB41D191F46D59C000453B1 /* Info.plist */,
 				0BB41D1A1F46D59C000453B1 /* main.m */,
 				0BB41D1C1F46D59C000453B1 /* TestBLEMac.entitlements */,
-				0B28E0E91F46E9C40068E272 /* CustomCentralDelegate.cpp */,
+				0B28E0E91F46E9C40068E272 /* CustomCentralDelegate.mm */,
 				0B28E0EA1F46E9C40068E272 /* CustomCentralDelegate.hpp */,
 			);
 			path = TestBLEMac;
@@ -247,6 +256,7 @@
 				0B48C2E01F4498EA00043AFE /* ViewController.mm in Sources */,
 				0B48C2EB1F4498EA00043AFE /* main.m in Sources */,
 				0B48C2DD1F4498EA00043AFE /* AppDelegate.m in Sources */,
+				0B0BB6511F470037004E9453 /* CustomCentralDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BB41D131F46D59C000453B1 /* ViewController.mm in Sources */,
-				0B28E0EB1F46E9C40068E272 /* CustomCentralDelegate.cpp in Sources */,
+				0B28E0EB1F46E9C40068E272 /* CustomCentralDelegate.mm in Sources */,
 				0BB41D1B1F46D59C000453B1 /* main.m in Sources */,
 				0BB41D101F46D59C000453B1 /* AppDelegate.m in Sources */,
 			);
@@ -399,14 +409,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/..";
+				DEVELOPMENT_TEAM = 5QGK56P5P5;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestBLE/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../build/";
 				PRODUCT_BUNDLE_IDENTIFIER = net.yageek.TestBLE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REEXPORTED_LIBRARY_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/..";
 			};
 			name = Debug;
 		};
@@ -414,14 +427,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/..";
+				DEVELOPMENT_TEAM = 5QGK56P5P5;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestBLE/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../build/";
 				PRODUCT_BUNDLE_IDENTIFIER = net.yageek.TestBLE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REEXPORTED_LIBRARY_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/..";
 			};
 			name = Release;
 		};

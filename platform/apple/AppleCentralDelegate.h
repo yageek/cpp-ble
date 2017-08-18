@@ -5,14 +5,16 @@
 #ifndef CONNECTED_MACHINES_CENTRALPROXY_H
 #define CONNECTED_MACHINES_CENTRALPROXY_H
 
+#import "../../ble/CentralDelegate.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-class Central_p;
+
+class Central;
 class CentralDelegate;
 
 @interface AppleCentralDelegate: NSObject <CBCentralManagerDelegate> {
     CentralDelegate *delegate;
-    Central_p* central;
+    Central* central;
 }
-- (instancetype) initWithDelegate:(CentralDelegate*) delegateInstance forCentral:(Central_p *) central;
+- (instancetype) initWithDelegate:(CentralDelegate*) delegateInstance forCentral:(Central *) central;
 @end
 #endif //CONNECTED_MACHINES_CENTRALPROXY_H

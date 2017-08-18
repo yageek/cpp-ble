@@ -9,15 +9,16 @@
 #import "ViewController.h"
 #import "ble/Central.h"
 #import "ble/CentralDelegate.h"
+#import "CustomCentralDelegate.hpp"
 
 @implementation ViewController {
     Central *cppCentral;
-    CentralDelegate *centralDelegate;
+    CustomCentralDelegate *centralDelegate;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    centralDelegate = new CentralDelegate();
+    centralDelegate = new CustomCentralDelegate();
     cppCentral = new Central(centralDelegate);
     // Do any additional setup after loading the view.
 }

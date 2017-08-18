@@ -3,45 +3,44 @@
 //
 
 #include <iostream>
-#include "Central_p.h"
 #include "Central.h"
-#include "../ble/Central_p.h"
 
-void Central_p::startScan() {
+void Central::startScan() {
     std::cout << "[Apple] Start scanning" << std::endl;
     [apple_manager scanForPeripheralsWithServices:nil options:nil];
 }
 
-void Central_p::stopScan() {
+void Central::stopScan() {
     [apple_manager stopScan];
 }
 
-Central_p::Central_p(Central* central, CentralDelegate *delegate) {
+Central::Central(CentralDelegate *delegate) {
 
     this->delegate = delegate;
-    this->proxyedCentral = central;
     std::cout << "Central Apple init" << std::endl;
     apple_delegate = [[AppleCentralDelegate alloc] initWithDelegate:delegate forCentral:this];
     apple_manager = [[CBCentralManager alloc] initWithDelegate:apple_delegate queue:nil];
 }
 
 
-CentralState Central_p::getState() {
+CentralState Central::getState() {
     return stateFromAppleState([apple_manager state]);
 }
 
-CentralState Central_p::stateFromAppleState(CBCentralManagerState state) {
+CentralState Central::stateFromAppleState(CBManagerState state) {
+    std::cout <<"Raw state:" << state << std::endl;
     switch (state) {
-        case CBCentralManagerStateUnknown:
+        case CBManagerStateUnknown:
             return CentralState::NotReady;
-        case CBCentralManagerStateResetting:
+        case CBManagerStateResetting:
             return CentralState::NotReady;
-        case CBCentralManagerStateUnauthorized:
-        case CBCentralManagerStateUnsupported:
+        case CBManagerStateUnauthorized:
+        std::cout <<"Not Authorized" << std::endl;
+        case CBManagerStateUnsupported:
             return CentralState::NotAvailable;
-        case CBCentralManagerStatePoweredOff:
+        case CBManagerStatePoweredOff:
             return CentralState::Off;
-        case CBCentralManagerStatePoweredOn:
+        case CBManagerStatePoweredOn:
             return CentralState::On;
     }
 }

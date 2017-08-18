@@ -8,7 +8,11 @@
 #include <functional>
 #include <iostream>
 
-class Central_p;
+#ifdef __APPLE__
+    #include <CoreBluetooth/CoreBluetooth.h>
+    #include "../platform/apple/AppleCentralDelegate.h"
+#endif
+
 class CentralDelegate;
 
 enum class CentralState {
@@ -18,20 +22,24 @@ enum class CentralState {
     NotAvailable
 };
 class Central {
+private:
+    CentralDelegate *delegate;
 
+#ifdef __APPLE__
+private:
+    CBCentralManager *apple_manager;
+    AppleCentralDelegate *apple_delegate;
+
+    static CentralState stateFromAppleState(CBManagerState state);
+#endif
 public:
     void startScan();
     void stopScan();
 
-    bool isScanning();
-    bool isValid();
+    CentralState getState();
 
     Central(CentralDelegate *delegate);
     ~Central();
-
-    CentralState getState();
-private:
-    Central_p * d;
 };
 
 

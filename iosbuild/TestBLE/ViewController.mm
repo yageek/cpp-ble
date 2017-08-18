@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-#import <ble/Central.h>
+#import "ble/Central.h"
+#include "CustomCentralDelegate.hpp"
 
 @interface ViewController () {
-    Central *central;
+    Central *cppCentral;
+    CustomCentralDelegate *centralDelegate;
 }
 
 @end
@@ -19,9 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    Central *p = new Central();
-    p->startScan(nullptr);
+    centralDelegate = new CustomCentralDelegate();
+    cppCentral = new Central(centralDelegate);
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        cppCentral->stopScan();
+    });
 }
 
 

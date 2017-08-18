@@ -3,11 +3,10 @@
 //
 
 #include "AppleCentralDelegate.h"
-#include "../../ble/Central_p.h"
 
 @implementation AppleCentralDelegate
 
-- (instancetype) initWithDelegate:(CentralDelegate*) delegateInstance forCentral:(Central_p *) centralInstance {
+- (instancetype) initWithDelegate:(CentralDelegate*) delegateInstance forCentral:(Central *) centralInstance {
 
     if (self = [super init]) {
         self->delegate = delegateInstance;
@@ -16,12 +15,12 @@
     return self;
 }
 
-- (void) centralManagerDidUpdateState:(CBCentralManager *)central {
+- (void) centralManagerDidUpdateState:(CBCentralManager *)centralInstance {
     if(!self->delegate) {
         return;
     }
 
-    self->delegate->central_updated_state(self->central->proxyedCentral);
+    self->delegate->central_updated_state(self->central);
 }
 
 - (void) centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {

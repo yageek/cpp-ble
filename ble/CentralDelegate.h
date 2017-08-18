@@ -8,10 +8,9 @@
 #include <string>
 #include <iostream>
 
-#include "Central.h"
+class Central;
 
 class CentralDelegate {
-    friend class Central;
 public:
     virtual void device_discovered(std::string &name, double RSSI) {
         std::cout << "Device found:" << name << " RSSI:" << RSSI << std::endl;
