@@ -28,7 +28,6 @@ JNIEnv *AndroidJNIHelper::getJNIEnv() {
 
 extern "C"
 jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
-    __android_log_print(ANDROID_LOG_DEBUG, "CppBLE", "JNI Init");
     static bool initialised = false;
 
     if (initialised) {
@@ -49,5 +48,8 @@ jint JNICALL JNI_OnLoad(JavaVM *vm, void *) {
         __android_log_print(ANDROID_LOG_FATAL, "CppBLE", "GetEnv failed");
         return -1;
     }
+
+    __android_log_print(ANDROID_LOG_DEBUG, "CppBLE", "JNI Init OK");
+    m_android_vm = vm;
     return JNI_VERSION_1_6;
 }

@@ -6,14 +6,21 @@
 #define CPP_BLE_ANDROIDADAPTER_H
 
 #include <jni.h>
+#include "../../ble/CentralDelegate.h"
 
 class AndroidAdapter {
 
 public:
-    AndroidAdapter();
+    AndroidAdapter(CentralDelegate *delegate);
     ~AndroidAdapter();
+
+    void startScan();
+    void stopScan();
+
 private:
+    CentralDelegate *delegate;
     jobject adapter;
+    jclass clazz;
     JNIEnv *env;
 };
 
