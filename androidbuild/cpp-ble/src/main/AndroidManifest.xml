@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="net.yageek.cppble">
+    <!--See: https://developer.android.com/guide/topics/connectivity/bluetooth.html#Permissions -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application android:allowBackup="true" android:label="cppble"
                  android:supportsRtl="true">

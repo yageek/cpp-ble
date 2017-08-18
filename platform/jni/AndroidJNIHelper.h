@@ -6,9 +6,11 @@
 #define CONNECTED_MACHINES_ANDROIDJNIHELPER_H
 
 #include <jni.h>
+#include <string>
 
 namespace AndroidJNIHelper {
-    static JavaVM * getJVM();
+    JavaVM *getJVM();
+    JNIEnv *getJNIEnv();
 };
 
 #endif //CONNECTED_MACHINES_ANDROIDJNIHELPER_H

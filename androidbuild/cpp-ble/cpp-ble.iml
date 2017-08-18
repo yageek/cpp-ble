@@ -87,7 +87,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/build/.DS_Store" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
@@ -107,6 +106,9 @@
     </content>
     <content url="file://$MODULE_DIR$/../../ble">
       <sourceFolder url="file://$MODULE_DIR$/../../ble" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../platform/android">
+      <sourceFolder url="file://$MODULE_DIR$/../../platform/android" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/../../platform/jni">
       <sourceFolder url="file://$MODULE_DIR$/../../platform/jni" isTestSource="false" />

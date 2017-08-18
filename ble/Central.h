@@ -12,7 +12,9 @@
     #include <CoreBluetooth/CoreBluetooth.h>
     #include "../platform/apple/AppleCentralDelegate.h"
 #endif
-
+#ifdef __ANDROID__
+    #include "../platform/android/AndroidAdapter.h"
+#endif
 class CentralDelegate;
 
 enum class CentralState {
@@ -21,6 +23,7 @@ enum class CentralState {
     NotReady,
     NotAvailable
 };
+
 class Central {
 private:
     CentralDelegate *delegate;
@@ -32,6 +35,11 @@ private:
 
     static CentralState stateFromAppleState(CBManagerState state);
 #endif
+
+#ifdef __ANDROID__
+    AndroidAdapter *android_adapter;
+#endif
+
 public:
     void startScan();
     void stopScan();

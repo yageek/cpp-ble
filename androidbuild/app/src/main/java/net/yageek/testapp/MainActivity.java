@@ -9,6 +9,7 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("cpp-ble");
+        System.loadLibrary("native-lib");
     }
 
     @Override
@@ -17,4 +18,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+    public native String stringFromJNI();
 }
