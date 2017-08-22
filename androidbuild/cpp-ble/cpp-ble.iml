@@ -110,9 +110,6 @@
     <content url="file://$MODULE_DIR$/../../platform/android">
       <sourceFolder url="file://$MODULE_DIR$/../../platform/android" isTestSource="false" />
     </content>
-    <content url="file://$MODULE_DIR$/../../platform/jni">
-      <sourceFolder url="file://$MODULE_DIR$/../../platform/jni" isTestSource="false" />
-    </content>
     <content url="file://$MODULE_DIR$/../../uuid">
       <sourceFolder url="file://$MODULE_DIR$/../../uuid" isTestSource="false" />
     </content>

@@ -12,10 +12,14 @@ set(SOURCE_FILES uuid/UUID.cpp)
 if(ANDROID)
 find_library(log-lib log)
 
-    LIST(APPEND SOURCE_FILES platform/jni/AndroidJNIHelper.cpp platform/android/AndroidAdapter.cpp ble/Central_android.cpp)
-    LIST(APPEND HEADER_FILES platform/jni/AndroidJNIHelper.h platform/android/AndroidAdapter.h)
+    include_directories(platform/android/thirdParty)
+    LIST(APPEND SOURCE_FILES platform/android/AndroidJNIHelper.cpp platform/android/AndroidAdapter.cpp ble/Central_android.cpp)
+    LIST(APPEND HEADER_FILES platform/android/AndroidJNIHelper.h platform/android/AndroidAdapter.h)
+
     add_library(cpp-ble SHARED ${SOURCE_FILES} ${HEADER_FILES})
+
     target_link_libraries(cpp-ble ${log-lib})
+
 endif()
 
 if(APPLE)

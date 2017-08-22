@@ -14,7 +14,7 @@ public class ScanningHelper {
     }
 
     public boolean scanForBLE(){
-        mBluetoothAdapter.getBluetoothLeScanner().startScan();
+        return false;
     }
 
 }

@@ -11,7 +11,7 @@ Central::Central(CentralDelegate *delegate) {
     __android_log_print(ANDROID_LOG_DEBUG, "CPPAPP", "Start Android central");
     this->delegate = delegate;
 
-    android_adapter = new AndroidAdapter();
+    android_adapter = new AndroidAdapter(delegate);
 }
 
 void Central::startScan() {

@@ -7,7 +7,7 @@
 
 #include <jni.h>
 #include "../../ble/CentralDelegate.h"
-
+#include <memory>
 class AndroidAdapter {
 
 public:
@@ -19,9 +19,6 @@ public:
 
 private:
     CentralDelegate *delegate;
-    jobject adapter;
-    jclass clazz;
-    JNIEnv *env;
 };
 
 
