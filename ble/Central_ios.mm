@@ -14,11 +14,14 @@ void Central::stopScan() {
     [apple_manager stopScan];
 }
 
-Central::Central(CentralDelegate *delegate) {
+Central::Central(std::weak_ptr<CentralDelegate> delegate) {
 
-    this->delegate = delegate;
     std::cout << "Central Apple init" << std::endl;
-    apple_delegate = [[AppleCentralDelegate alloc] initWithDelegate:delegate forCentral:this];
+
+    // Get the delegate
+    this->delegate = delegate.lock();
+    
+    apple_delegate = [[AppleCentralDelegate alloc] initWithDelegate:this->delegate.get() forCentral:this];
     apple_manager = [[CBCentralManager alloc] initWithDelegate:apple_delegate queue:nil];
 }
 

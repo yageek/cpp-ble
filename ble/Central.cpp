@@ -5,8 +5,7 @@
 #include "Central.h"
 #include "CentralDelegate.h"
 
-Central::Central(CentralDelegate *delegate) {
-
+Central(std::weak_ptr<CentralDelegate> delegate) delegate(delegate.lock()){
 }
 
 Central::~Central() {

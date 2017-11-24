@@ -7,6 +7,7 @@
 
 #include <functional>
 #include <iostream>
+#include <memory>
 
 #ifdef __APPLE__
     #include <CoreBluetooth/CoreBluetooth.h>
@@ -26,7 +27,7 @@ enum class CentralState {
 
 class Central {
 private:
-    CentralDelegate *delegate;
+    std::shared_ptr<CentralDelegate> delegate;
 
 #ifdef __APPLE__
 private:
@@ -46,7 +47,7 @@ public:
 
     CentralState getState();
 
-    Central(CentralDelegate *delegate);
+    Central(std::weak_ptr<CentralDelegate> delegate);
     ~Central();
 };
 

@@ -40,7 +40,7 @@ namespace jni
        };
 
     template < class T >
-    using UniqueGlobalRef = std::unique_ptr< T, GlobalRefDeleter >;
+    using   UniqueGlobalRef = std::unique_ptr< T, GlobalRefDeleter >;
 
 
     class WeakGlobalRefDeleter
