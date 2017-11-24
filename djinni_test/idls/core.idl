@@ -1,0 +1,8 @@
+
+@extern "3rdParty/uuid.yaml"
+
+# The central interface
+central_interface = interface +j +o {
+  start_scan(uuids: list<UUID>);
+  stop_scan();
+}

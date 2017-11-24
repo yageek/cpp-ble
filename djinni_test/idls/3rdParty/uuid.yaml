@@ -1,0 +1,30 @@
+---
+name: UUID
+typedef: 'record'
+params: []
+prefix: ''
+cpp:
+  typename: 'cppble::UUID'
+  header: '"Basic/Color.hpp"'
+  byValue: false
+objc:
+  typename: 'NSUUID'
+  header: '<Foundation/Foundation.h>'
+  boxed: 'NSUUID'
+  pointer: true
+  hash: '(NSUInteger)%s'
+  printDescription: '%s'
+objcpp:
+  translator: '::djinni::Color'
+  header: '"Basic-objc.hpp"'
+java:
+  typename: 'java.util.UUID'
+  boxed: 'java.util.UUID'
+  reference: true
+  generic: false
+  hash: '%s.hashCode()'
+jni:
+  translator: '::djinni::UUID'
+  header: '"Basic-jni.hpp"'
+  typename: jobject
+  typeSignature: 'Ljava/util/UUID;'
