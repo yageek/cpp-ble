@@ -5,7 +5,7 @@ params: []
 prefix: ''
 cpp:
   typename: 'cppble::UUID'
-  header: '"Basic/Color.hpp"'
+  header: '<basic/UUID.hpp>'
   byValue: false
 objc:
   typename: 'NSUUID'
@@ -15,8 +15,8 @@ objc:
   hash: '(NSUInteger)%s'
   printDescription: '%s'
 objcpp:
-  translator: '::djinni::Color'
-  header: '"Basic-objc.hpp"'
+  translator: '::cpple::UUID'
+  header: '<basic/UUID-objc.hpp>'
 java:
   typename: 'java.util.UUID'
   boxed: 'java.util.UUID'

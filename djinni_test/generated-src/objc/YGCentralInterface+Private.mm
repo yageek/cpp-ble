@@ -3,9 +3,9 @@
 
 #import "YGCentralInterface+Private.h"
 #import "YGCentralInterface.h"
-#import "Basic-objc.hpp"
 #import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
+#import <basic/UUID-objc.hpp>
 #include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -22,7 +22,7 @@ public:
     void start_scan(const std::vector<cppble::UUID> & c_uuids) override
     {
         @autoreleasepool {
-            [djinni_private_get_proxied_objc_object() startScan:(::djinni::List<::djinni::Color>::fromCpp(c_uuids))];
+            [djinni_private_get_proxied_objc_object() startScan:(::djinni::List<::cpple::UUID>::fromCpp(c_uuids))];
         }
     }
     void stop_scan() override
